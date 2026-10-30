@@ -18,6 +18,8 @@
 
 .photoCol {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -29,6 +31,13 @@
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--accent-border);
+}
+
+.flipHint {
+  margin: 10px 0 0;
+  color: var(--text-dimmer);
+  font-size: 12px;
+  text-align: center;
 }
 
 .content {

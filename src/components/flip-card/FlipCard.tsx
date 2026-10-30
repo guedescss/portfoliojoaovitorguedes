@@ -5,10 +5,11 @@ interface FlipCardProps {
     front: ReactNode
     back: ReactNode
     ariaLabel?: string
+    'aria-describedby'?: string
 }
 
 //flip card das stacks com minha foto
-const FlipCard = ({ front, back, ariaLabel }: FlipCardProps) => {
+const FlipCard = ({ front, back, ariaLabel, 'aria-describedby': ariaDescribedBy }: FlipCardProps) => {
     const [locked, setLocked] = useState(false)
 
     const toggle = () => setLocked((v) => !v)
@@ -30,6 +31,7 @@ const FlipCard = ({ front, back, ariaLabel }: FlipCardProps) => {
             aria-pressed={locked}
             title="Clique para fixar lado"
             aria-label={ariaLabel}
+            aria-describedby={ariaDescribedBy}
         >
             <div className={styles.flipInner}>
                 <div className={styles.face}>{front}</div>

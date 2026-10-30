@@ -42,10 +42,14 @@ const About = () => {
                     <div className={styles.photoFrame}>
                         <FlipCard
                             ariaLabel="Virar cartão entre a foto e a janela de código"
+                            aria-describedby="about-flip-hint"
                             front={<img src={Avatar} alt="Guedes" />}
                             back={<CodeWindow fileName="guedes-portfolio.js" tokens={codeTokens} />}
                         />
                     </div>
+                    <p className={styles.flipHint} id="about-flip-hint">
+                        Passe o mouse ou toque no cartão para virar
+                    </p>
                 </div>
 
                 <div className={styles.content}>
