@@ -1,0 +1,76 @@
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(80px, 12vh, 140px) clamp(20px, 4vw, 48px);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+
+.photoCol {
+  display: flex;
+  justify-content: center;
+}
+
+/* moldura da foto minha com o mesmo tamanho do flipcard */
+.photoFrame {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--accent-border);
+}
+
+.content {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--text);
+}
+
+.text {
+  max-width: 52ch;
+  /* font-size: clamp(1rem, 1.5vw, 1.15rem); */
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  margin: 0 0 16px;
+}
+
+.cards {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  font-size: 14px;
+  max-width: 52ch;
+}
+
+
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
