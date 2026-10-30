@@ -31,12 +31,13 @@ const vid = (path: string) =>
 const projects: ProjectCardProps[] = [
     {
         category: 'JavaScript',
-        title: 'Expression Lab',
+        title: 'Expression Scanner Meme',
         description: 'Aplicação de visão computacional que roda direto no navegador, usando a webcam para detectar gestos com as mãos e expressões faciais em tempo real. O projeto reconhece gestos personalizados e os associa a imagens e GIFs, explorando a detecção de landmarks faciais e manuais com MediaPipe.',
         stack: ['JavaScript', 'MediaPipe', 'Vite', 'Canvas API', 'WebRTC'],
         image: img('img-expression-lab.png'),
         video: vid('prj-expression-lab/video-expression-lab.mp4'),
-        repoUrl: 'https://github.com/guedescss/expression-lab',
+        repoUrl: 'https://github.com/guedescss/expressionmemejs',
+        liveUrl: 'https://expressionscannermeme.vercel.app/',
     },
     {
         category: 'Full-stack',
