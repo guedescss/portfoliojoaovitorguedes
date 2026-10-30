@@ -6,7 +6,7 @@ import { IoIosContact } from 'react-icons/io';
 import { TiDocumentText } from 'react-icons/ti';
 import MsgWelcome from '../../../../components/msg-welcome/MsgWelcome'
 import FlipCard from '../../../../components/flip-card/FlipCard'
-import CurriculoPdf from '../../../../assets/images/curriculo/Curriculo_Joao_Vitor Atual.pdf'
+import CurriculoPdf from '../../../../assets/images/curriculo/Curriculo_Joao_Vitor_Atualizado_2026.pdf'
 import Avatar from '../../../../assets/images/perfil-draw.png'
 
 const prefersReducedMotion =
@@ -65,7 +65,7 @@ const Hero = () => {
                         <a
                             className={styles.social}
                             href={CurriculoPdf}
-                            download="Curriculo_Joao_Vitor Atual.pdf"
+                            download="Curriculo_Joao_Vitor_Atualizado_2026.pdf"
                         >
                             <TiDocumentText aria-hidden />
                             Download CV
