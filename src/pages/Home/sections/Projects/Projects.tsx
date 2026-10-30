@@ -30,22 +30,23 @@ const vid = (path: string) =>
 //conteudo dos cards dos projetos
 const projects: ProjectCardProps[] = [
     {
-    category: 'JavaScript',
-    title: 'Expression Lab',
-    description: 'Aplicação de visão computacional que roda direto no navegador, usando a webcam para detectar gestos com as mãos e expressões faciais em tempo real. O projeto reconhece gestos personalizados e os associa a imagens e GIFs, explorando a detecção de landmarks faciais e manuais com MediaPipe.',
-    stack: ['JavaScript', 'MediaPipe', 'Vite', 'Canvas API', 'WebRTC'],
-    image: img('img-expression-lab.png'),
-    video: vid('prj-expression-lab/video-expression-lab.mp4'),
-    repoUrl: 'https://github.com/guedescss/expression-lab',
+        category: 'JavaScript',
+        title: 'Expression Lab',
+        description: 'Aplicação de visão computacional que roda direto no navegador, usando a webcam para detectar gestos com as mãos e expressões faciais em tempo real. O projeto reconhece gestos personalizados e os associa a imagens e GIFs, explorando a detecção de landmarks faciais e manuais com MediaPipe.',
+        stack: ['JavaScript', 'MediaPipe', 'Vite', 'Canvas API', 'WebRTC'],
+        image: img('img-expression-lab.png'),
+        video: vid('prj-expression-lab/video-expression-lab.mp4'),
+        repoUrl: 'https://github.com/guedescss/expression-lab',
     },
     {
-        category: 'Front-end',
-        title: 'Movie APP Filmes e Séries',
-        description: 'Aplicação para explorar filmes, séries e animes, integrada a diferentes APIs para consulta e exibição de conteúdos. O projeto utiliza componentização e separação de serviços, buscando manter o código organizado, reutilizável e escalável.',
-        stack: ['React', 'Next.js', 'Typescript', 'SCSS', 'API'],
-        image: img('img-movies-app.png'),
-        video: vid('prj-movies-app/movies-app-caiote.mp4'),
-        repoUrl: 'https://github.com/guedescss/movies-app',
+        category: 'Full-stack',
+        title: 'Plataforma de Sorteios Online',
+        description: 'Plataforma para criação e gerenciamento de sorteios online, com uma interface simples para organizar e acompanhar rifas. Desenvolvida com Next.js e API Routes, TypeScript, Prisma ORM e Supabase.',
+        stack: ['Next.js', 'API Routes', 'TypeScript', 'Prisma ORM', 'Supabase', 'PostgreSQL'],
+        image: img('rifas-foto.png'),
+        video: vid('rifasvideo.mp4'),
+        repoUrl: 'https://github.com/guedescss/scarfacerifas',
+        liveUrl: 'https://scarfacerifas.vercel.app/',
     },
 ]
 
