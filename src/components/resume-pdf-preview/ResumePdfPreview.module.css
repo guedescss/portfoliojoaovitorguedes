@@ -1,0 +1,33 @@
+.preview {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  overflow: auto;
+  padding: clamp(14px, 3vw, 32px);
+  background: #242424;
+  scrollbar-color: #676767 transparent;
+}
+
+.pages {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.preview canvas {
+  display: block;
+  flex: 0 0 auto;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
+}
+
+.error {
+  margin: auto;
+  color: #ffb4ab;
+  text-align: center;
+}

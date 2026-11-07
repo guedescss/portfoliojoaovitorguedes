@@ -192,6 +192,116 @@
   color: var(--accent);
 }
 
+.resumeDialog {
+  position: fixed;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: min(1080px, calc(100% - 32px));
+  height: min(88dvh, 900px);
+  max-height: 88dvh;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.6);
+}
+
+.resumeDialog::backdrop {
+  background: rgba(5, 5, 8, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+.resumeModal {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.resumeHeader,
+.resumeFooter {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 24px;
+  background: var(--surface);
+}
+
+.resumeEyebrow {
+  margin-bottom: 2px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resumeHeader h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.closeResume {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--text-dim);
+  font-size: 1.75rem;
+  line-height: 1;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.closeResume:hover {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.resumeFooter {
+  padding-top: 14px;
+  padding-bottom: 18px;
+}
+
+.resumeFooter p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.downloadResume {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.downloadResume:hover {
+  background: #a4a5ff;
+  transform: translateY(-1px);
+}
+
+.downloadResume svg {
+  width: 16px;
+  height: 16px;
+}
+
 
 
 .windowSlot {
@@ -227,5 +337,30 @@
 
   .social {
     justify-content: flex-start;
+  }
+
+  .resumeDialog {
+    width: calc(100% - 16px);
+    height: min(92dvh, 900px);
+    border-radius: 14px;
+  }
+
+  .resumeHeader {
+    padding: 14px 18px;
+  }
+
+  .resumeFooter {
+    padding: 12px 18px 16px;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .resumeFooter p {
+    font-size: 0.82rem;
+  }
+
+  .downloadResume {
+    width: 100%;
   }
 }

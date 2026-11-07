@@ -1,11 +1,13 @@
-import { useRef, type MouseEvent } from 'react'
+import { useEffect, useRef, useState, type MouseEvent } from 'react'
 import styles from './Hero.module.css'
 import { FaGithub } from "react-icons/fa";
+import { FaDownload } from 'react-icons/fa'
 import { CiLinkedin } from "react-icons/ci";
 import { IoIosContact } from 'react-icons/io';
 import { TiDocumentText } from 'react-icons/ti';
 import MsgWelcome from '../../../../components/msg-welcome/MsgWelcome'
 import FlipCard from '../../../../components/flip-card/FlipCard'
+import ResumePdfPreview from '../../../../components/resume-pdf-preview/ResumePdfPreview'
 import CurriculoPdf from '../../../../assets/images/curriculo/Curriculo_Joao_Vitor_Atualizado_2026.pdf'
 import Avatar from '../../../../assets/images/perfil-draw.png'
 
@@ -14,6 +16,19 @@ const prefersReducedMotion =
 
 const Hero = () => {
     const heroRef = useRef<HTMLElement>(null)
+    const [isResumeOpen, setIsResumeOpen] = useState(false)
+    const resumeDialogRef = useRef<HTMLDialogElement>(null)
+
+    useEffect(() => {
+        const dialog = resumeDialogRef.current
+        if (!dialog) return
+
+        if (isResumeOpen && !dialog.open) {
+            dialog.showModal()
+        } else if (!isResumeOpen && dialog.open) {
+            dialog.close()
+        }
+    }, [isResumeOpen])
 
     // atualiza a posição do glow roxo do fundo direto no DOM
     const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
@@ -62,14 +77,14 @@ const Hero = () => {
                             Contato
                         </a>
 
-                        <a
+                        <button
                             className={styles.social}
-                            href={CurriculoPdf}
-                            download="Curriculo_Joao_Vitor_Atualizado_2026.pdf"
+                            type="button"
+                            onClick={() => setIsResumeOpen(true)}
                         >
                             <TiDocumentText aria-hidden />
-                            Download CV
-                        </a>
+                            Visualizar CV
+                        </button>
                     </div>
 
                 </div>
@@ -89,6 +104,53 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+
+            <dialog
+                ref={resumeDialogRef}
+                className={styles.resumeDialog}
+                aria-labelledby="resume-dialog-title"
+                onCancel={(event) => {
+                    event.preventDefault()
+                    setIsResumeOpen(false)
+                }}
+                onClose={() => setIsResumeOpen(false)}
+                onClick={(event) => {
+                    if (event.target === event.currentTarget) {
+                        setIsResumeOpen(false)
+                    }
+                }}
+            >
+                <div className={styles.resumeModal}>
+                    <header className={styles.resumeHeader}>
+                        <div>
+                            <p className={styles.resumeEyebrow}>Meu perfil</p>
+                            <h2 id="resume-dialog-title">Currículo</h2>
+                        </div>
+                        <button
+                            className={styles.closeResume}
+                            type="button"
+                            aria-label="Fechar visualização do currículo"
+                            onClick={() => setIsResumeOpen(false)}
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </header>
+
+                    <ResumePdfPreview src={CurriculoPdf} />
+
+                    <footer className={styles.resumeFooter}>
+                        <p>Confira meu currículo ou baixe uma cópia em PDF.</p>
+                        <a
+                            className={styles.downloadResume}
+                            href={CurriculoPdf}
+                            download="Curriculo_Joao_Vitor_Atualizado_2026.pdf"
+                        >
+                            <FaDownload aria-hidden />
+                            Baixar CV
+                        </a>
+                    </footer>
+                </div>
+            </dialog>
         </section>
     )
 }
