@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiImage, FiInfo } from 'react-icons/fi'
 import { FaGithub } from 'react-icons/fa'
 import { ArrowUpRightIcon } from '../icons/Icons'
@@ -22,16 +22,33 @@ export interface ProjectCardProps {
 
     //preview em video, so carrega quando passa o mouse
     video?: string
+
+    //imagens de preview em slideshow, exibidas ao passar o mouse
+    previewImages?: string[]
 }
 
-const ProjectCard = ({ image, category, title, description, stack, repoUrl, liveUrl, note, video }: ProjectCardProps) => {
+const ProjectCard = ({ image, category, title, description, stack, repoUrl, liveUrl, note, video, previewImages }: ProjectCardProps) => {
     const [hovering, setHovering] = useState(false)
     const [videoReady, setVideoReady] = useState(false)
+    const [activePreview, setActivePreview] = useState(0)
+
+    useEffect(() => {
+        if (!hovering || !previewImages?.length) return
+
+        const intervalId = window.setInterval(() => {
+            setActivePreview((index) => (index + 1) % previewImages.length)
+        }, 1800)
+
+        return () => window.clearInterval(intervalId)
+    }, [hovering, previewImages])
 
     return (
         <article
             className={styles.card}
-            onMouseEnter={() => setHovering(true)}
+            onMouseEnter={() => {
+                setActivePreview(0)
+                setHovering(true)
+            }}
             onMouseLeave={() => {
                 setHovering(false)
                 setVideoReady(false)
@@ -44,6 +61,15 @@ const ProjectCard = ({ image, category, title, description, stack, repoUrl, live
                     <div className={styles.imagePlaceholder}>
                         <FiImage />
                     </div>
+                )}
+
+                {previewImages && hovering && (
+                    <img
+                        key={activePreview}
+                        className={styles.previewImage}
+                        src={previewImages[activePreview]}
+                        alt=""
+                    />
                 )}
 
                 {/* so monta o <video> (e só então baixa o arquivo) quando o mouse entra no card */}

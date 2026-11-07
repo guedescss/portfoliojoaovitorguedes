@@ -35,6 +35,25 @@
   transition: opacity 0.25s ease;
 }
 
+.previewImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: previewFade 0.4s ease both;
+}
+
+@keyframes previewFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .videoVisible {
   opacity: 1;
 }

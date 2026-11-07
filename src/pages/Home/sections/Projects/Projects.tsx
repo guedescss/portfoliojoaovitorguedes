@@ -14,6 +14,14 @@ const projectImages = import.meta.glob('../../../../assets/images/projetos/*.{pn
 const img = (filename: string) =>
     projectImages[`../../../../assets/images/projetos/${filename}`]
 
+const springBootImages = import.meta.glob('../../../../assets/spring-boot-fotos/*.{png,jpg,jpeg,webp}', {
+    eager: true,
+    import: 'default',
+}) as Record<string, string>
+
+const springBootImg = (filename: string) =>
+    springBootImages[`../../../../assets/spring-boot-fotos/${filename}`]
+
 
 
 //importacao dos videos de preview dos projetos
@@ -48,6 +56,21 @@ const projects: ProjectCardProps[] = [
         video: vid('rifasvideo.mp4'),
         repoUrl: 'https://github.com/guedescss/scarfacerifas',
         liveUrl: 'https://scarfacerifas.vercel.app/',
+    },
+    {
+        category: 'Java • Backend',
+        title: 'API REST de Profissionais',
+        description: 'API REST para consultar e cadastrar profissionais de desenvolvimento de software. Desenvolvida com Spring Boot, Spring Web MVC e Spring Data JPA, com persistência em PostgreSQL.',
+        stack: ['Java 21', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'Maven', 'Docker Compose'],
+        image: springBootImg('imgp.png'),
+        previewImages: [
+            springBootImg('img1.png'),
+            springBootImg('img2.png'),
+            springBootImg('img4.jpeg'),
+            springBootImg('img5.jpeg'),
+            springBootImg('img5.png'),
+        ],
+        repoUrl: 'https://github.com/guedescss/spring-boot-postgresql',
     },
 ]
 
