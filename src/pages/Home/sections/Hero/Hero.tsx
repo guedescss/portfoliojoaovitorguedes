@@ -19,13 +19,20 @@ const Hero = () => {
     const [isResumeOpen, setIsResumeOpen] = useState(false)
     const resumeDialogRef = useRef<HTMLDialogElement>(null)
 
+    const closeResume = () => {
+        resumeDialogRef.current?.classList.add(styles.isClosing)
+        setIsResumeOpen(false)
+    }
+
     useEffect(() => {
         const dialog = resumeDialogRef.current
         if (!dialog) return
 
         if (isResumeOpen && !dialog.open) {
+            dialog.classList.remove(styles.isClosing)
             dialog.showModal()
         } else if (!isResumeOpen && dialog.open) {
+            dialog.classList.add(styles.isClosing)
             dialog.close()
         }
     }, [isResumeOpen])
@@ -111,12 +118,17 @@ const Hero = () => {
                 aria-labelledby="resume-dialog-title"
                 onCancel={(event) => {
                     event.preventDefault()
-                    setIsResumeOpen(false)
+                    closeResume()
                 }}
                 onClose={() => setIsResumeOpen(false)}
                 onClick={(event) => {
                     if (event.target === event.currentTarget) {
-                        setIsResumeOpen(false)
+                        closeResume()
+                    }
+                }}
+                onTransitionEnd={(event) => {
+                    if (event.target === event.currentTarget && event.propertyName === 'opacity') {
+                        event.currentTarget.classList.remove(styles.isClosing)
                     }
                 }}
             >
@@ -130,7 +142,7 @@ const Hero = () => {
                             className={styles.closeResume}
                             type="button"
                             aria-label="Fechar visualização do currículo"
-                            onClick={() => setIsResumeOpen(false)}
+                            onClick={closeResume}
                         >
                             <span aria-hidden="true">&times;</span>
                         </button>
