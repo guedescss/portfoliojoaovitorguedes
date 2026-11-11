@@ -38,6 +38,16 @@ const vid = (path: string) =>
 //conteudo dos cards dos projetos
 const projects: ProjectCardProps[] = [
     {
+        category: 'Full-stack • GraphQL',
+        title: 'MindShare',
+        description: 'Plataforma de ideias colaborativas onde usuários podem publicar ideias, comentar e votar. API GraphQL com autenticação JWT, refresh tokens e operações para gerenciar usuários, ideias, comentários e votos.',
+        stack: ['Node.js', 'Express', 'Apollo Server', 'TypeGraphQL', 'Prisma', 'TypeScript', 'JWT', 'React', 'Vite', 'Tailwind CSS', 'shadcn/ui'],
+        image: img('mindshare-preview.png'),
+        video: vid('mindshare_apresentacao_v2-preview.mp4'),
+        repoUrl: 'https://github.com/guedescss/mindshare',
+        liveUrl: 'https://mindshare-sable.vercel.app/',
+    },
+    {
         category: 'JavaScript',
         title: 'Expression Scanner Meme',
         description: 'Aplicação de visão computacional que roda direto no navegador, usando a webcam para detectar gestos com as mãos e expressões faciais em tempo real. O projeto reconhece gestos personalizados e os associa a imagens e GIFs, explorando a detecção de landmarks faciais e manuais com MediaPipe.',
